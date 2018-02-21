@@ -27,12 +27,9 @@ Your images will appear in the "images" folder created by the application.
 __Helpful note:__ To view .gif files on a Mac select the image(s) and press "cmd" + "y".
 
 ## Example Use
+
 ![Terminal](screenshots/terminal_example.png)
 
 ![Folder](screenshots/image_folder.png)
 
 ![Output](screenshots/output_example.png)
-
-
-
-_Please e-mail or comment any features that would improve this application._
