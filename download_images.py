@@ -2,7 +2,6 @@
 
 import praw
 from credentials import *
-import requests
 import urllib
 from prawcore import NotFound
 from prawcore import PrawcoreException
@@ -85,7 +84,7 @@ try:
                 img_url = submission.url
                 _, extension = os.path.splitext(img_url)
                 if extension in ['.jpg', '.gif', '.jpeg', '.png']:
-                    print '\nDownloading', subreddit + str(count)
+                    print '\nDownloading', subreddit + str(count) + extension
                     print 'Source:', img_url
                     print 'Comments: https://www.reddit.com/r/'+subreddit+'/'+str(submission)
                     urllib.urlretrieve(img_url, 'images/%s%i%s' %
@@ -93,7 +92,7 @@ try:
                     count += 1
                 # .gifv file extensions do not play, convert to .gif
                 elif extension == '.gifv':
-                    print '\nDownloading', subreddit + str(count)
+                    print '\nDownloading', subreddit + str(count) + extension
                     print 'Source:', img_url
                     print 'Comments: https://www.reddit.com/r/'+subreddit+'/'+str(submission)
                     root, _ = os.path.splitext(img_url)
@@ -103,7 +102,7 @@ try:
                     count += 1
             if 'https://thumbs.gfycat.com/' in submission.url:
                 img_url = submission.url
-                print '\nDownloading', subreddit + str(count)
+                print '\nDownloading', subreddit + str(count) + '.gif'
                 print 'Source:', img_url
                 print 'Comments: https://www.reddit.com/r/'+subreddit+'/'+str(submission)
                 urllib.urlretrieve(img_url, 'images/%s%i%s' %
@@ -119,7 +118,7 @@ try:
                     img_url = img_url[0] + img_url[1]
                 root, _ = os.path.splitext(img_url)
                 img_url = root + '-size_restricted.gif'
-                print '\nDownloading', subreddit + str(count)
+                print '\nDownloading', subreddit + str(count) + '.gif'
                 print 'Source:', img_url
                 print 'Comments: https://www.reddit.com/r/'+subreddit+'/'+str(submission)
                 urllib.urlretrieve(img_url, 'images/%s%i%s' %
