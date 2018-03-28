@@ -15,11 +15,13 @@ Next, add a `credentials.py` file to your working directory and add your applica
 
 There are two ways to run the application:  
 
-`python download_images.py subreddit number`  
+1.) `python download_images.py [subreddit] [number]`  
 
 Where __subreddit__ is the subreddit you wish to download images from and __number__ is the number of pictures you want to download.  
 
-Or simply run `python download_images.py` to be prompted to input the subreddit and number of pictures you want to download.
+_Ex._ `python download_images.py aww 5`
+
+2.) `python download_images.py` to be prompted to input the subreddit and number of pictures you want to download.
 
 
 Your images will appear in the "images" folder created by the application.
