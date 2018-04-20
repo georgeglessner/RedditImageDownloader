@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 '''
 
 Reddit Image Downloader
@@ -29,12 +28,10 @@ def main():
     subreddit = ''
     num_pics = 0
 
-
     # handle 'ctrl + c' if downloads takes too long
     def sigint_handler(signum, frame):
         print '\nQuitting...'
         sys.exit(1)
-
 
     signal.signal(signal.SIGINT, sigint_handler)
 
@@ -46,7 +43,7 @@ def main():
         user_agent=AGENT,
         username=USERNAME)
 
-     # get values of arguments
+    # get values of arguments
     subreddit = arguments.get('--subreddit')
     num_pics = int(arguments.get('--number'))
     search_term = arguments.get('--query')
@@ -68,7 +65,8 @@ def main():
     if search_term == None:
         results = reddit.subreddit(subreddit).hot()
     else:
-        results = reddit.subreddit(subreddit).search(search_term, params={'nsfw': 'yes'})
+        results = reddit.subreddit(subreddit).search(
+            search_term, params={'nsfw': 'yes'})
 
     # create images folder if one does not exits
     if not os.path.exists('./images'):
@@ -83,7 +81,8 @@ def main():
                     img_url = submission.url
                     _, extension = os.path.splitext(img_url)
                     if extension in ['.jpg', '.gif', '.jpeg', '.png']:
-                        print '\nDownloading', subreddit + str(count) + extension
+                        print '\nDownloading', subreddit + str(
+                            count) + extension
                         print 'Source:', img_url
                         print 'Comments: https://www.reddit.com/r/' + subreddit + '/' + str(
                             submission)
@@ -107,8 +106,8 @@ def main():
                     print 'Source:', img_url
                     print 'Comments: https://www.reddit.com/r/' + subreddit + '/' + str(
                         submission)
-                    urllib.urlretrieve(img_url, 'images/%s%i%s' % (subreddit,
-                                                                   count, '.gif'))
+                    urllib.urlretrieve(img_url, 'images/%s%i%s' %
+                                       (subreddit, count, '.gif'))
                     count += 1
                 # some gfycat conversions will not work due to capitalizations of link
                 if 'https://gfycat.com/' in submission.url:
@@ -124,8 +123,8 @@ def main():
                     print 'Source:', img_url
                     print 'Comments: https://www.reddit.com/r/' + subreddit + '/' + str(
                         submission)
-                    urllib.urlretrieve(img_url, 'images/%s%i%s' % (subreddit,
-                                                                   count, '.gif'))
+                    urllib.urlretrieve(img_url, 'images/%s%i%s' %
+                                       (subreddit, count, '.gif'))
                     count += 1
             else:
                 print '\nCompleted!\n'
