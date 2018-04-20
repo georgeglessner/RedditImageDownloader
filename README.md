@@ -2,10 +2,10 @@
 
 A reddit application that downloads pictures and GIFS from a given subreddit.
 
-## How to use  
-First, create a [reddit personal use script application](https://www.reddit.com/prefs/apps/).
+## Setup 
+1. Create a [reddit personal use script application](https://www.reddit.com/prefs/apps/).
 
-Next, add a `credentials.py` file to your working directory and add your applications credentials.
+2. Add a `credentials.py` file to your working directory and add your applications credentials.
 
     ID='YOUR_ID'  
     SECRET='YOUR_SECRET'  
@@ -13,25 +13,21 @@ Next, add a `credentials.py` file to your working directory and add your applica
     AGENT='Example Bot by /u/example_bot'  
     USERNAME='YOUR_USERNAME'  
 
-There are two ways to run the application:  
+3. Run `pip install -r requirements.txt`
 
-1.) `python download_images.py [subreddit] [number]`  
+# Usage
 
-Where __subreddit__ is the subreddit you wish to download images from and __number__ is the number of pictures you want to download.  
 
-_Ex._ `python download_images.py aww 5`
+	Usage: download_images.py [-s SUBREDDIT] [-n NUMBER OF PICTURES] [-q SEARCH QUERY]
 
-2.) `python download_images.py` to be prompted to input the subreddit and number of pictures you want to download.
+	-h --help                           show this
+	-s --subreddit SUBREDDIT            specify subreddit
+	-n --number NUMBER OF PICTURES      specify number of pictures to download [default: 20]
+	-q --query SEARCH QUERY             specify a specific search term
 
 
 Your images will appear in the "images" folder created by the application.
 
 __Helpful note:__ To view .gif files on a Mac select the image(s) and press "cmd" + "y".
 
-## Example Use
 
-![Terminal](screenshots/terminal_example.png)
-
-![Folder](screenshots/image_folder.png)
-
-![Output](screenshots/output_example.png)
