@@ -2,7 +2,7 @@
 
 A reddit application that downloads pictures and GIFS from a given subreddit.
 
-## Setup 
+# Setup 
 1. Create a [reddit personal use script application](https://www.reddit.com/prefs/apps/).
 
 2. Add a `credentials.py` file to your working directory and add your applications credentials.
