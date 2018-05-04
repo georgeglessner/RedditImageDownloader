@@ -95,7 +95,7 @@ def main():
                         print '\nDownloading', subreddit + str(
                             count) + extension
                         print 'Source:', img_url
-                        print 'Comments: https://www.reddit.com/r/' + subreddit + '/' + str(
+                        print 'Comments: https://www.reddit.com/r/' + subreddit + '/comments/' + str(
                             submission)
                         urllib.urlretrieve(img_url, 'images/%s%i%s' %
                                            (subreddit, count, extension))
@@ -104,7 +104,7 @@ def main():
                     elif extension == '.gifv':
                         print '\nDownloading', subreddit + str(count) + '.gif'
                         print 'Source:', img_url
-                        print 'Comments: https://www.reddit.com/r/' + subreddit + '/' + str(
+                        print 'Comments: https://www.reddit.com/r/' + subreddit + '/comments' + str(
                             submission)
                         root, _ = os.path.splitext(img_url)
                         img_url = root + '.gif'
@@ -115,7 +115,7 @@ def main():
                     img_url = submission.url
                     print '\nDownloading', subreddit + str(count) + '.gif'
                     print 'Source:', img_url
-                    print 'Comments: https://www.reddit.com/r/' + subreddit + '/' + str(
+                    print 'Comments: https://www.reddit.com/r/' + subreddit + '/comments' + str(
                         submission)
                     urllib.urlretrieve(img_url, 'images/%s%i%s' %
                                        (subreddit, count, '.gif'))
@@ -132,7 +132,7 @@ def main():
                     img_url = root + '-size_restricted.gif'
                     print '\nDownloading', subreddit + str(count) + '.gif'
                     print 'Source:', img_url
-                    print 'Comments: https://www.reddit.com/r/' + subreddit + '/' + str(
+                    print 'Comments: https://www.reddit.com/r/' + subreddit + '/comments' + str(
                         submission)
                     urllib.urlretrieve(img_url, 'images/%s%i%s' %
                                        (subreddit, count, '.gif'))
