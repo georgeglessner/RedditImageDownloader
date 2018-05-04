@@ -3,23 +3,24 @@
 
 Reddit Image Downloader
 
-Usage: download_images.py [-s SUBREDDIT] [-n NUMBER OF PICTURES] [-q SEARCH QUERY]
+Usage: download_images.py [-s SUBREDDIT] [-n NUMBER OF PICTURES] [-p PAGE] [-q SEARCH QUERY] 
 
 -h --help                           show this
 -s --subreddit SUBREDDIT            specify subreddit
 -n --number NUMBER OF PICTURES      specify number of pictures to download [default: 20]
+-p --page PAGE                      hot, top, controversial, new, rising [default: hot]
 -q --query SEARCH QUERY             specify a specific search term
 
 '''
 
 import praw
-from credentials import *
 import urllib
-from prawcore import NotFound
-from prawcore import PrawcoreException
 import sys
 import os
 import signal
+from credentials import ID, SECRET, PASSWORD, AGENT, USERNAME
+from prawcore import NotFound
+from prawcore import PrawcoreException
 from docopt import docopt
 
 
@@ -47,6 +48,7 @@ def main():
     subreddit = arguments.get('--subreddit')
     num_pics = int(arguments.get('--number'))
     search_term = arguments.get('--query')
+    page = arguments.get('--page')
 
     # prompt for a subreddit if none given
     if subreddit == None:
@@ -63,7 +65,16 @@ def main():
 
     # determine what to search
     if search_term == None:
-        results = reddit.subreddit(subreddit).hot()
+        if page == 'hot':
+            results = reddit.subreddit(subreddit).hot()
+        elif page == 'controversial':
+            results = reddit.subreddit(subreddit).controversial()
+        elif page == 'top':
+            results = reddit.subreddit(subreddit).top()
+        elif page == 'rising':
+            results = reddit.subreddit(subreddit).rising()
+        elif page == 'new':
+            results = reddit.subreddit(subreddit).new()
     else:
         results = reddit.subreddit(subreddit).search(
             search_term, params={'nsfw': 'yes'})
