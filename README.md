@@ -29,6 +29,6 @@ A reddit application that downloads pictures and gifs from a given subreddit.
 
 Your images will appear in the "images" folder created by the application.
 
-__Helpful note:__ To view .gif files on a Mac select the image(s) and press "cmd" + "y".
+__Helpful note:__ To view .gif files on a Mac select the image(s) and press `cmd` + `y`.
 
 
