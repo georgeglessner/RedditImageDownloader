@@ -1,3 +1,5 @@
 /credentials.py
 /credentials.pyc
 /images
+__pycache__/
+.DS_Store

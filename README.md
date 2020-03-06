@@ -13,7 +13,7 @@ A reddit application that downloads pictures and gifs from a given subreddit.
 		AGENT='Example Bot by /u/example_bot'  
 		USERNAME='YOUR_USERNAME'  
 
-3. Run `pip install -r requirements.txt`
+3. Run `pip3 install -r requirements.txt`
 
 # Usage
 
